@@ -1,13 +1,161 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --surface-a: #ffffff;
+    --surface-b: #eff3f8;
+    --surface-c: #f6f9fc;
+    --surface-d: #dfe7ef;
+    --surface-e: #ffffff;
+    --surface-f: #ffffff;
+    --text-color: #043d75;
+    --text-color-secondary: #708da9;
+    --primary-color: #7254f3;
+    --primary-color-text: #ffffff;
+    --font-family: Lato, Helvetica, sans-serif;
+    --surface-0: #ffffff;
+    --surface-50: #f1f4f6;
+    --surface-100: #e2e8ee;
+    --surface-200: #c6d1dd;
+    --surface-300: #a9bbcb;
+    --surface-400: #8da4ba;
+    --surface-500: #708da9;
+    --surface-600: #5a7187;
+    --surface-700: #435565;
+    --surface-800: #2d3844;
+    --surface-900: #161c22;
+    --gray-50: #f1f4f6;
+    --gray-100: #e2e8ee;
+    --gray-200: #c6d1dd;
+    --gray-300: #a9bbcb;
+    --gray-400: #8da4ba;
+    --gray-500: #708da9;
+    --gray-600: #5a7187;
+    --gray-700: #435565;
+    --gray-800: #2d3844;
+    --gray-900: #161c22;
+    --content-padding: 1.25rem;
+    --inline-spacing: 0.5rem;
+    --border-radius: 6px;
+    --surface-ground: #eff3f8;
+    --surface-section: #ffffff;
+    --surface-card: #ffffff;
+    --surface-overlay: #ffffff;
+    --surface-border: #dfe7ef;
+    --surface-hover: #f6f9fc;
+    --focus-ring: 0 0 0 1px #c7bbfa;
+    --maskbg: rgba(0, 0, 0, 0.4);
+    --highlight-bg: #e2dcfc;
+    --highlight-text-color: #7254f3;
+    color-scheme: light;
+}
+::-webkit-scrollbar	{background:trasparent;display:none;}
+::-webkit-scrollbar-thumb	{background:trasparent;}
+::-webkit-scrollbar-track	{background:trasparent;}
+
+html, body {
+  -webkit-overflow-scrolling : touch !important;
+  overflow: hidden !important;background:#f7f7f9;font-size:14px;}
+* {font-family: 'Noto Sans KR', sans-serif;}
+* {
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+@media (prefers-color-scheme: dark) {
+  body .dark\:text-white\/80 {color: rgba(0, 0, 0, 0.8);}
+  body .dark\:bg-gray-900 {background:#fff;}
+  body .dark\:border-blue-900\/40 {border-color: rgb(209 213 219 / 1);}
+  body .before\:dark\:bg-gray-900::before {background:#fff;}
+  body .dark\:text-gray-900 {color: #fff;}
+  body .dark\:bg-blue-400  {background:var(--primary-color);}
+  body .dark\:border-blue-400 {border-color:var(--primary-color);}
+  body .dark\:text-white\/70  {    color: rgb(75 85 99/1)}
+  body .dark\:bg-gray-700 {    background-color: rgb(209 213 219 /1)}
+  body .dark\:bg-gray-800 {background-color: rgb(229 231 235 /1)}
+  body .dark\:hover\:bg-gray-800:hover  {background-color: rgb(229 231 235 /1)}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-pc-section="headercontent"] {
+  justify-content: center;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.p-inputtext-sm {
+  height: 2.15rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+}
+[data-pc-name="inputtext"] {
+max-width:100%;
+}
+[data-pc-name="inputswitch"][aria-checked="true"] [data-pc-section="slider"] {
+  background:var(--primary-color);
+}
+[data-pc-name="dialog"] {
+  width:90vw;max-width:800px;
+}
+
+[data-pc-section="daylabel"][data-p-disabled="true"] {opacity:0.3;}
+
+
+@keyframes twinkling {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+[data-pc-section="minutepicker"],[data-pc-section="separatorcontainer"] {display:none;}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  background:#fff;
+}
+.react-datepicker__day--outside-month {color:#555;}
+.react-datepicker {border:0;font-size:1em;display:grid;}
+.react-datepicker__month-container {float:none;}
+.react-datepicker__header {background:none;border:0;font-size:1em;font-weight:500;padding:0;}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {width:auto;height:auto;font-size:1em;margin:0;aspect-ratio:1/1;align-items:center;justify-content:center;display:flex;}
+.react-datepicker__month {margin:0;display:grid;grid-auto-columns:1fr;grid-template-rows:repeat(6,1fr);}
+.react-datepicker__month-container {display:grid;grid-template-rows:1.8fr 6fr;}
+.react-datepicker__week, .react-datepicker__day-names {display:grid;grid-auto-columns:1fr;grid-auto-rows:1fr;grid-template-columns:repeat(7,1fr);}
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover, .react-datepicker__month-text--selected:hover, .react-datepicker__month-text--in-selecting-range:hover, .react-datepicker__month-text--in-range:hover, .react-datepicker__quarter-text--selected:hover, .react-datepicker__quarter-text--in-selecting-range:hover, .react-datepicker__quarter-text--in-range:hover, .react-datepicker__year-text--selected:hover, .react-datepicker__year-text--in-selecting-range:hover, .react-datepicker__year-text--in-range:hover,
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+  background:#e4f0f8;
+  color:#000;
+}
+.react-datepicker__day--today, .react-datepicker__month-text--today, .react-datepicker__quarter-text--today, .react-datepicker__year-text--today {font-weight:400;}
+
+/* @media screen and (orientation: portrait) and (pointer:coarse) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  .h-screen {
+    height:100vw;
+  }
+} */

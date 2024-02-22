@@ -1,25 +1,82 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
+    "name": "a2d.POS",
+    "short_name": "a2d.POS",
+    "display": "fullscreen",
+    "display_override": ["fullscreen"],
+    "orientation": "landscape",
+    "id":"/",
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "background_color": "#f7f7f9",
+    "description": "올투딜리셔스 POS",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "sizes": "32x32",
+        "type": "image/x-icon",
+        "purpose": "monochrome"
+      },
+      {
+        "src": "favicon-32x32.png",
+        "sizes": "32x32",
+        "type": "image/png",
+        "purpose": "monochrome"
+      },
+      {
+        "src": "logo_48.gif",
+        "sizes": "48x48",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_72.gif",
+        "sizes": "144x144",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_96.gif",
+        "sizes": "96x96",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_144.gif",
+        "sizes": "144x144",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_168.gif",
+        "sizes": "168x168",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_192.gif",
+        "sizes": "192x192",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_256.gif",
+        "sizes": "256x256",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo_512.gif",
+        "sizes": "512x512",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "logo.gif",
+        "sizes": "any",
+        "type": "image/gif",
+        "purpose": "any maskable"
+      }
+    ],
+    "scope": "/"
+  }
+  

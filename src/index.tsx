@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RecoilRoot } from 'recoil';
+import "react-datepicker/dist/react-datepicker.css";
+import Home from './pages/Home';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  <RecoilRoot>
   <React.StrictMode>
-    <App />
+      <Home />
   </React.StrictMode>
+    </RecoilRoot>
 );
 
 // If you want to start measuring performance in your app, pass a function
