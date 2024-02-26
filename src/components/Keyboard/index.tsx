@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Hangul from 'hangul-js'
+import shift from '../../images/icon_shift.png'
+import lang from '../../images/icon_lang.png'
+import remove from '../../images/icon_remove.png'
 
 export default function Keyboard({setValue, className = '', enterTxt = 'enter', onEnter, defaultValue ='', defaultKeyboard = 'koNormal'}:{
     setValue: (value: string) => void
@@ -13,9 +16,9 @@ export default function Keyboard({setValue, className = '', enterTxt = 'enter', 
     useEffect(() => {
       setPx(window.innerWidth/960)
     }, [])
-    const [originalText, setOriginalText] = React.useState<string>('')
-    const [keyboardType, setKeyboardType] = React.useState<'koNormal' | 'koShift' | 'enShift' | 'enNormal' | 'numberNormal' | 'numberShift'>('koNormal')
-    const [charList, setCharList] = React.useState<string[]>([])
+    const [originalText, setOriginalText] = useState<string>('')
+    const [keyboardType, setKeyboardType] = useState<'koNormal' | 'koShift' | 'enShift' | 'enNormal' | 'numberNormal' | 'numberShift'>('koNormal')
+    const [charList, setCharList] = useState<string[]>([])
     useEffect(() => {
         setOriginalText(defaultValue)
         setCharList(defaultValue.split(''))
@@ -79,18 +82,18 @@ export default function Keyboard({setValue, className = '', enterTxt = 'enter', 
                         {btn === 'shift' ? <span className='block bg-no-repeat bg-center bg-contain mx-auto' style={{
                             width: 16.5 * px + 'px',
                             height: 20 * px + 'px',
-                            backgroundImage: `url('/images/icon_shift.png')`
+                            backgroundImage: `url(${shift})`
                         }}></span> 
                         : btn === 'backspace' ? <span className='block bg-no-repeat bg-center bg-contain mx-auto' style={{
                             width: 28.5 * px + 'px',
                             height: 21.5 * px + 'px',
                             transform: `translateX(-${3 * px}px)`,
-                            backgroundImage: `url('/images/icon_remove.png')`
+                            backgroundImage: `url(${remove})`
                         }}></span>
                         : btn === '한/영' ? <span className='block bg-no-repeat bg-center bg-contain mx-auto' style={{
                             width: 23.5 * px + 'px',
                             height: 23.5 * px + 'px',
-                            backgroundImage: `url('/images/icon_lang.png')`
+                            backgroundImage: `url(${lang})`
                         }}></span> 
                         : btn === 'enter' ? enterTxt : btn}
                     </button>)}

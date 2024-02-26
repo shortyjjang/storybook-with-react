@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Keyboard from '.';
+import { Memo } from '.';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Components/NumberKeypad',
-  component: Keyboard,
+  title: 'Components/Memo',
+  component: Memo,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -13,14 +13,13 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    setValue: { control: 'function' },
+    onSubmit: { control: 'function' },
+    onCancel: { control: 'function' },
+    value: { control: 'text' },
+    style: { control: 'object' },
     className: { control: 'text' },
-    enterTxt: { control: 'text' },
-    onEnter: { control: 'function' },
-    defaultValue: { control: 'text' },
-    defaultKeyboard: { control: 'radio', options:['koNormal' , 'koShift' , 'enShift' , 'enNormal' , 'numberNormal' , 'numberShift']},
   },
-} satisfies Meta<typeof Keyboard>;
+} satisfies Meta<typeof Memo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -28,9 +27,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Example: Story = {
   args: {
-    defaultValue: 'Hello World!',
-    defaultKeyboard: 'koNormal',
-    enterTxt: '닫기',
-    onEnter: () => {},
+    onSubmit: () => {},
+    onCancel: () => {},
+    value: '',
+    style: {},
+    className: 'relative',
   },
 };

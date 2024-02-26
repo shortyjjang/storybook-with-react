@@ -12,6 +12,12 @@ import dayjs from "dayjs"
 import { indexedDb } from "../lib/db"
 import Loading from "./Loading"
 import Login from "./Login"
+import Title from "../components/Title"
+import DailySalesLists from "./History/lists"
+import Finish from "./History/finish"
+import History from "./History"
+import Sales from "./Sales"
+import logout_icon from "../images/icon_logout.png"
 
 export default function Home() {
     const [displayType, setDisplayType] = useState<DISPLAY_MODE>('')
@@ -302,85 +308,84 @@ export default function Home() {
     if(user.token) {
 
 
-        // //상품판매
-        // if(displayType === 'MODE_SALES') return(
-        //     <Sales displayType={displayType} setDisplayType={setDisplayType} setStatus={setStatus} />
-        // )
+        //상품판매
+        if(displayType === 'MODE_SALES') return(
+            <Sales displayType={displayType} setDisplayType={setDisplayType} setStatus={setStatus} />
+        )
 
-        // //판매내역
-        // if(displayType === 'MODE_HISTORY') return(
-        //     <History syncOrder={syncOrder} setDisplayType={(type:DISPLAY_MODE) => {
-        //         if(type === 'MODE_CREATE_REPORT') setLastPage(displayType)
-        //         setDisplayType(type)
-        //     }} displayType={displayType} />
-        // )
+        //판매내역
+        if(displayType === 'MODE_HISTORY') return(
+            <History syncOrder={syncOrder} setDisplayType={(type:DISPLAY_MODE) => {
+                if(type === 'MODE_CREATE_REPORT') setLastPage(displayType)
+                setDisplayType(type)
+            }} displayType={displayType} />
+        )
 
-        // if(displayType === 'MODE_DAILY_SALESLIST') return(
-        //     <DailySalesLists syncOrder={syncOrder} setDisplayType={(type:DISPLAY_MODE) => {
-        //         if(type === 'MODE_CREATE_REPORT') setLastPage(displayType)
-        //         setDisplayType(type)
-        //     }} displayType={displayType} />
-        // )
+        if(displayType === 'MODE_DAILY_SALESLIST') return(
+            <DailySalesLists syncOrder={syncOrder} setDisplayType={(type:DISPLAY_MODE) => {
+                if(type === 'MODE_CREATE_REPORT') setLastPage(displayType)
+                setDisplayType(type)
+            }} displayType={displayType} />
+        )
 
-        // if(displayType === 'MODE_CREATE_REPORT') return(
-        //     <Finish setDisplayType={setDisplayType} displayType={displayType} lastPage={lastPage} />
-        // )
+        if(displayType === 'MODE_CREATE_REPORT') return(
+            <Finish setDisplayType={setDisplayType} displayType={displayType} lastPage={lastPage} />
+        )
 
         //메인화면
-        return <></>
-        // return (
-        //     <div className="flex justify-center flex-col items-center h-screen" style={{
-        //         paddingBottom: 30 * px + 'px',
-        //     }}>
-        //         <Title>{
-        //             user?.departmentStore?.departmentStoreName === "HYUNDAI"? '현대'
-        //             : user?.departmentStore?.departmentStoreName === "SHINSEGAE"? '신세계'
-        //             : user?.departmentStore?.departmentStoreName === "LOTTE"? '롯데'
-        //             : user?.departmentStore?.departmentStoreName === 'GALLERIA'? '갤러리아'
-        //             : user?.departmentStore?.departmentStoreName
-        //         } {user?.departmentStore?.branchName} &gt; {user?.brandName}</Title>
-        //         <button className="absolute top-0 right-0 flex items-center  bg-no-repeat" style={{
-        //             backgroundImage: 'url(/images/icon_logout.png)',
-        //             backgroundSize: `${19 * px}px ${22 * px}px`,
-        //             backgroundPosition: '0 center',
-        //             height: `${52 * px}px`,
-        //             fontSize: `${12.5 * px}px`,
-        //             paddingLeft: `${26 * px}px`,
-        //             paddingRight: `${10 * px}px`,
-        //         }} onClick={logout}>로그아웃</button>
-        //         <div className="grid grid-cols-2" style={{
-        //             gridAutoColumns: '1fr',
-        //             gridAutoRows: '1fr',
-        //             gap: `${15 * px}px`,
-        //             width: `${435 * px}px`,
-        //         }}>
-        //             {([['MODE_SALES','상품판매/폐기'],['MODE_HISTORY','판매내역/취소/마감'],['MODE_DAILY_SALESLIST','일자별 판매 요약']] as [string,string][]).map((item,index) => <button key={index} onClick={async () => {
-        //                 setDisplayType(item[0] as DISPLAY_MODE)
-        //             }} 
-        //             className="aspect-[21/14] flex flex-col justify-center items-center bg-white border border-black rounded-md" style={{
-        //                 fontSize: `${20 * px}px`,
-        //             }}>
-        //                 {item[1]}
-        //             </button>)}
-        //             <button onClick={() => {
-        //                 const callback = () =>window.location.reload()
-        //                 sync(callback)
-        //             }} className="relative aspect-[21/14] flex flex-col justify-center items-center bg-white border border-black rounded-md" style={{
-        //                 fontSize: `${20 * px}px`,
-        //             }}>
-        //                     동기화
-        //                     <span className="absolute left-0 w-full text-center  text-darkgray" style={{
-        //                         fontSize: `${11 * px}px`,
-        //                         bottom: `${15 * px}px`,
-        //                     }}>{syncDate}</span>
-        //                 <span className={`absolute top-full left-0 w-full text-[#f10000]`} style={{
-        //                     marginTop: `${8 * px}px`,
-        //                     fontSize: `${11 * px}px`,
-        //                 }}>{status}</span>
-        //             </button>
-        //         </div>
-        //     </div>
-        // )
+        return (
+            <div className="flex justify-center flex-col items-center h-screen" style={{
+                paddingBottom: 30 * px + 'px',
+            }}>
+                <Title>{
+                    user?.departmentStore?.departmentStoreName === "HYUNDAI"? '현대'
+                    : user?.departmentStore?.departmentStoreName === "SHINSEGAE"? '신세계'
+                    : user?.departmentStore?.departmentStoreName === "LOTTE"? '롯데'
+                    : user?.departmentStore?.departmentStoreName === 'GALLERIA'? '갤러리아'
+                    : user?.departmentStore?.departmentStoreName
+                } {user?.departmentStore?.branchName} &gt; {user?.brandName}</Title>
+                <button className="absolute top-0 right-0 flex items-center  bg-no-repeat" style={{
+                    backgroundImage: `url(${logout_icon})`,
+                    backgroundSize: `${19 * px}px ${22 * px}px`,
+                    backgroundPosition: '0 center',
+                    height: `${52 * px}px`,
+                    fontSize: `${12.5 * px}px`,
+                    paddingLeft: `${26 * px}px`,
+                    paddingRight: `${10 * px}px`,
+                }} onClick={logout}>로그아웃</button>
+                <div className="grid grid-cols-2" style={{
+                    gridAutoColumns: '1fr',
+                    gridAutoRows: '1fr',
+                    gap: `${15 * px}px`,
+                    width: `${435 * px}px`,
+                }}>
+                    {([['MODE_SALES','상품판매/폐기'],['MODE_HISTORY','판매내역/취소/마감'],['MODE_DAILY_SALESLIST','일자별 판매 요약']] as [string,string][]).map((item,index) => <button key={index} onClick={async () => {
+                        setDisplayType(item[0] as DISPLAY_MODE)
+                    }} 
+                    className="aspect-[21/14] flex flex-col justify-center items-center bg-white border border-black rounded-md" style={{
+                        fontSize: `${20 * px}px`,
+                    }}>
+                        {item[1]}
+                    </button>)}
+                    <button onClick={() => {
+                        const callback = () =>window.location.reload()
+                        sync(callback)
+                    }} className="relative aspect-[21/14] flex flex-col justify-center items-center bg-white border border-black rounded-md" style={{
+                        fontSize: `${20 * px}px`,
+                    }}>
+                            동기화
+                            <span className="absolute left-0 w-full text-center  text-darkgray" style={{
+                                fontSize: `${11 * px}px`,
+                                bottom: `${15 * px}px`,
+                            }}>{syncDate}</span>
+                        <span className={`absolute top-full left-0 w-full text-[#f10000]`} style={{
+                            marginTop: `${8 * px}px`,
+                            fontSize: `${11 * px}px`,
+                        }}>{status}</span>
+                    </button>
+                </div>
+            </div>
+        )
     } 
 
 

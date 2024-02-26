@@ -106,3 +106,46 @@ export type orderDataType = {
   },
   orderId?:string
 }
+export type DailyInfoType = {
+    "salesDate": string,
+    "ediSalesList": {
+        "departmentName": string,
+        "branchName": string,
+        "brandName": string,
+        "salesAmount": number
+        ediInterWorkingYn: 'Y' | 'N'
+    }[],
+    "hasEdiSalesAmountYn": "Y" | "N",
+    "ediTotalSalesAmount": number,
+    "daySales": {
+      "totalAmount": number,
+      "paidAmount": number,
+      "discountAmount": number,
+      "totalCount": number,
+      "saleCount": number,
+      "cancelCount": number,
+      "cancelAmount": number,
+      "disposeCount": number,
+      "posSalesAmount": number,
+      "bankSalesAmount": number,
+      posPaidAmount: number
+      bankPaidAmount: number
+    },
+    "closureTime": string,
+    "employeeList": Employ[],
+    "closureMemo": string,
+}
+export type Employ = {
+  "employeeName": string,
+  "employeeType": string,
+  "startTime": string,
+  "endTime": string,
+  "breakTime": string
+}
+export type ValueEmploy = {
+    "employeeName": string,
+    "employeeType": string,
+    "startTime": number[],
+    "endTime": number[],
+    "breakTime": number[]
+}
